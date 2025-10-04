@@ -1,0 +1,5 @@
+@charset "UTF-8";
+.backgoundImage{
+	color: red;
+	background-image: url('/resources/P_Images/CMbackground.png');
+}
