@@ -1,48 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
- <link rel="stylesheet"
-	href='<c:url value="/resources/manual/CM.css" />'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Write a New Blog Post</title>
 
-<link rel="stylesheet"
-	href='<c:url value="/resources/bootstrap/css/bootstrap.min.css" />'>
-<script
-	src='<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>'></script>
-<link rel="stylesheet"
-	href='<c:url value="/resources/fontawesome/css/all.min.css" />'>
-<script
-	src='<c:url value="/resources/fontawesome/js/all.min.js"/>'></script>
+        <link href='<c:url value="/resources/bootstrap/css/bootstrap.min.css" />' rel="stylesheet" >
 
+        <link rel="stylesheet" href='<c:url value="/resources/fontawesome/css/all.min.css" />'>
 
-<title>Insert title here</title>
-</head>
-<body>
-<nav class=" navbar navbar-expand-lg bg-body-primary bg-dark ">
-		<div class="container-fluid text-dark">
-			<a class="navbar-brand" href="#"><i class="fa-solid fa-globe"></i>College-media</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="//">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="login"><i class="fa-solid fa-user mr-1"></i>Login</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="register"><i class="fa-solid fa-address-book mr-2"></i>Sign up</a>
-					</li>
-					<li class="nav-item"><a class="nav-link disabled"
-						aria-disabled="true">Disabled</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+        <link rel="stylesheet" href='<c:url value="/resources/manual/CM.css" />'>
 
-</body>
+        <script src='<c:url value="/resources/bootstrap/js/bootstrap.bundle.min.js" />' defer></script>
+
+        <title>Insert title here</title>
+    </head>
+    <body>
+        <!-- 1. NAVIGATION BAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-4 fw-bold" href="<c:url value="/"/>">
+                   <i class="fas fa-lightbulb me-2 text-warning"></i> The Idea Journal
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+
+    </body>
 </html>
