@@ -23,9 +23,6 @@ public class AuthController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        // 'profilePic' is the name of the field in the User entity.
-        // Spring will no longer try to set the file data (MultipartFile)
-        // onto the byte[] profilePic field in the User object.
         binder.setDisallowedFields("profilePic");
     }
 
@@ -50,7 +47,7 @@ public class AuthController {
         if (user != null) {
             // SUCCESS: Store the user object in the session to track login state
             request.getSession().setAttribute("currentUser", user);
-            return "redirect:/content"; // Go to the secured content page
+            return "redirect:/content"; 
         } else {
             // FAILURE
             model.addAttribute("error", "Invalid credentials. Please try again.");
@@ -76,9 +73,7 @@ public class AuthController {
     @PostMapping("/register")
     public String handleRegistration(@ModelAttribute("user") User user, @RequestParam("profilePic") MultipartFile profilePicFile, RedirectAttributes redirectAttributes) {
         try {
-            // NOTE: Password handling (hashing) must be done in UserService
             userService.registerNewUser(user, profilePicFile);
-            //set profile pic from userservice
             redirectAttributes.addFlashAttribute("message", "Registration successful! Please log in.");
             return "redirect:/login";
         } catch (Exception e) {
