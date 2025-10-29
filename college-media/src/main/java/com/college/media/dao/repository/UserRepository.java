@@ -16,13 +16,12 @@ public class UserRepository implements GenericRepository<User, Integer> {
     @Autowired
     private SessionFactory sessionFactory;
 
-    // Helper method to get the current session
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
     @SuppressWarnings("deprecation")
-	@Override
+    @Override
     public User save(User user) {
         getCurrentSession().saveOrUpdate(user);
         return user;
@@ -33,15 +32,13 @@ public class UserRepository implements GenericRepository<User, Integer> {
         return getCurrentSession().get(User.class, id);
     }
 
-    // Custom method specific to User logic
-    public User findByEmailAndPassword(String email,String password) {
-        Query<User> query= getCurrentSession().createQuery("FROM User WHERE emailId = :email AND password = :password", User.class);
+    public User findByEmailAndPassword(String email, String password) {
+        Query<User> query = getCurrentSession().createQuery("FROM User WHERE emailId = :email AND password = :password", User.class);
         query.setParameter("email", email);
         query.setParameter("password", password);
         return query.uniqueResult();
-                
-                 // Use uniqueResult for single returns
-    }
+
+     }
 
     @Override
     public List<User> findAll() {
@@ -49,7 +46,7 @@ public class UserRepository implements GenericRepository<User, Integer> {
     }
 
     @SuppressWarnings("deprecation")
-	@Override
+    @Override
     public void delete(User user) {
         getCurrentSession().delete(user);
     }

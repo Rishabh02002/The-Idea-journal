@@ -32,14 +32,12 @@
                 </div>
                 <div class="card-body p-4">
 
-                    <%-- Standard HTML Form replacement for form:form --%>
                     <form action="/post/new" method="POST" enctype="multipart/form-data" name="post">
 
                         <div class="mb-3">
                             <label for="postTitle" class="form-label fw-bold">Post Title:</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-heading"></i></span>
-                                    <%-- Replaced form:input path="postTitle" with standard HTML input --%>
                                 <input type="text" id="postTitle" name="postTitle" required class="form-control" placeholder="A catchy title for your post" value="${post.postTitle}"/>
                             </div>
                         </div>

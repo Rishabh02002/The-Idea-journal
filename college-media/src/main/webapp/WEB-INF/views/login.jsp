@@ -15,7 +15,6 @@
         <script src='<c:url value="/resources/fontawesome/js/all.min.js"/>'></script>
 
         <style>
-            /* Reusing the card style from index.jsp */
             .card-auth {
                 border: none;
                 border-radius: 15px;
@@ -43,8 +42,7 @@
         <!-- LOGIN CARD CONTAINER -->
         <div class="container mt-5">
             <div class="row">
-                <!-- Card is centered using Bootstrap classes -->
-                <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-4 offset-lg-4 card card-auth p-0">
+                 <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-4 offset-lg-4 card card-auth p-0">
 
                     <div class="card-header p-3 text-center bg-white border-bottom-0">
                         <i class="fa-solid fa-user fa-2x login-title mb-1"></i>
@@ -76,7 +74,6 @@
                                 <input class="form-control" type="password" id="password" name="password" required>
                             </div>
 
-                            <!-- Primary themed button -->
                             <button class="btn btn-primary w-100 py-2 fw-bold" type="submit">
                                 <i class="fas fa-sign-in-alt me-2"></i> Log In to Journal
                             </button>

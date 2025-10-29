@@ -21,7 +21,6 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-    // Handler for the default URL (redirects to index page)
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         // 'profilePic' is the name of the field in the User entity.
@@ -32,10 +31,10 @@ public class AuthController {
 
     @GetMapping("/")
     public String showIndexPage() {
-        return "index"; // Maps to /WEB-INF/views/index.jsp
+        return "index"; 
     }
 
-    // --- Login Handlers ---
+    // --- Login ---
     @GetMapping("/login")
     public String showLoginPage() {
         return "login";
@@ -59,7 +58,7 @@ public class AuthController {
         }
     }
 
-    // --- Logout Handler ---
+    // --- Logout ---
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         // Invalidate the session, removing the 'currentUser' attribute
@@ -67,7 +66,7 @@ public class AuthController {
         return "redirect:/"; // Redirect to the public index page
     }
 
-    // --- Registration Handlers ---
+    // --- Registration---
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("user", new User());

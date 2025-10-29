@@ -26,9 +26,6 @@ public class PostController {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        // 'profilePic' is the name of the field in the User entity.
-        // Spring will no longer try to set the file data (MultipartFile)
-        // onto the byte[] profilePic field in the User object.
         binder.setDisallowedFields("postImage");
     }
 
@@ -43,14 +40,11 @@ public class PostController {
     @Autowired
     private LikeService likeService;
 
-    // Helper method to check session for logged-in user
     private User getCurrentUser(HttpServletRequest request) {
         return (User) request.getSession().getAttribute("currentUser");
     }
 
-    /**
-     * * Handles the main Content visibility page URL: /content
-     */
+   
     @GetMapping("/content")
     public String showContentPage(HttpServletRequest request, Model model) {
         User currentUser = getCurrentUser(request);
@@ -65,7 +59,6 @@ public class PostController {
             likesMap.put(post.getPostId(), likesCount);
         }
 
-        // Add the logged-in user to the model for display purposes
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("posts", postService.getAllPosts());
         model.addAttribute("categories", categoryService.getAllCategories());
@@ -74,9 +67,7 @@ public class PostController {
         return "content"; // Maps to /WEB-INF/views/content.jsp
     }
 
-    /**
-     * * Handles creating a new post URL: /post/new
-     */
+   
     @GetMapping("/post/new")
     public String showNewPostForm(HttpServletRequest request, Model model) {
         User currentUser = getCurrentUser(request);
@@ -98,7 +89,6 @@ public class PostController {
             return "redirect:/login"; // Secure this route
         }
 
-        // Set the current logged-in user as the author of the post
         try {
             post.setUser(currentUser);
             post.setLikes(null);
@@ -111,10 +101,7 @@ public class PostController {
         return "redirect:/content";
     }
 
-    /**
-     * * Handles viewing a single post (can be public or semi-public) We'll
-     * keep this page secured for consistency, requiring login URL: /post/123
-     */
+ 
     @GetMapping("/post/{postId}")
     public String viewSinglePost(@PathVariable("postId") int postId, HttpServletRequest request, Model model) {
 
@@ -138,44 +125,36 @@ public class PostController {
 
     @GetMapping("/image/user/{userId}")
     public ResponseEntity<byte[]> getUserImage(@PathVariable("userId") int userId) {
-        // Assume userService.getUserById(userId) is implemented to fetch the user from
-        // DB
         User user = userService.getUserById(userId);
 
         if (user != null && user.getProfilePic() != null) {
             byte[] imageBytes = user.getProfilePic();
 
             HttpHeaders headers = new HttpHeaders();
-            // Set Content-Type to image/jpeg (adjust if you store PNG or GIF)
             headers.setContentType(MediaType.IMAGE_JPEG);
             headers.setContentLength(imageBytes.length);
 
             return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
         }
 
-        // Return 404 if user or image not found
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/image/post/{postId}")
     public ResponseEntity<byte[]> getPostImage(@PathVariable("postId") int postId) {
-        // Assume postService.getPostById(postId) is implemented to fetch the post from
-        // DB
         Post post = postService.getPostById(postId);
 
         if (post != null && post.getPostImage() != null) {
             byte[] imageBytes = post.getPostImage();
 
             HttpHeaders headers = new HttpHeaders();
-            // Set Content-Type to image/jpeg (adjust if you store PNG or GIF)
             headers.setContentType(MediaType.IMAGE_JPEG);
             headers.setContentLength(imageBytes.length);
 
             return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
         }
 
-        // Return 404 if post or image not found
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/likes/post/{postId}")

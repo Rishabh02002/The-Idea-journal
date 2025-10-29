@@ -15,7 +15,6 @@ public class LikeRepository implements GenericRepository<Like, Integer> {
     @Autowired
     private SessionFactory sessionFactory;
 
-    // Helper method to get the current session
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
@@ -33,7 +32,6 @@ public class LikeRepository implements GenericRepository<Like, Integer> {
         return getCurrentSession().get(Like.class, id);
     }
 
-    // Custom method specific to Like logic
     public Long getTotalLikes(int postID) {
         return getCurrentSession().createQuery(// Corrected JPQL/HQL Query String
                 "select count(l) from Like l where l.post.postId = :postID", Long.class)

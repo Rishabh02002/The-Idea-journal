@@ -15,48 +15,43 @@ public class Category {
     @Column(name = "category_type", unique = true, nullable = false)
     private String categoryType;
 
-    // Relationship: One Category can have Many Posts
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Post> posts;
 
-	public Category(Integer categoryId, String categoryType, Set<Post> posts) {
-		super();
-		this.categoryId = categoryId;
-		this.categoryType = categoryType;
-		this.posts = posts;
-	}
+    public Category(Integer categoryId, String categoryType, Set<Post> posts) {
+        super();
+        this.categoryId = categoryId;
+        this.categoryType = categoryType;
+        this.posts = posts;
+    }
 
-	public Category() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public Category() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public Integer getCategoryId() {
-		return categoryId;
-	}
+    public Integer getCategoryId() {
+        return categoryId;
+    }
 
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public String getCategoryType() {
-		return categoryType;
-	}
+    public String getCategoryType() {
+        return categoryType;
+    }
 
-	public void setCategoryType(String categoryType) {
-		this.categoryType = categoryType;
-	}
+    public void setCategoryType(String categoryType) {
+        this.categoryType = categoryType;
+    }
 
-	public Set<Post> getPosts() {
-		return posts;
-	}
+    public Set<Post> getPosts() {
+        return posts;
+    }
 
-	public void setPosts(Set<Post> posts) {
-		this.posts = posts;
-	}
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
+    }
 
-	
-
-    // Getters and Setters (omitted for brevity)
-    
 }

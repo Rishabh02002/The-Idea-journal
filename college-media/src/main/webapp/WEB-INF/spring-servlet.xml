@@ -26,11 +26,6 @@
 	<mvc:resources location="WEB-INF/resources/"
 		mapping="/resources/**" />
 
-	<!-- ... existing configuration (DataSource, SessionFactory, etc.) ... -->
-
-	<!-- New: Configure Multipart Resolver for File Uploads -->
-	<!-- This bean tells Spring how to handle multipart requests (file uploads) -->
-
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 

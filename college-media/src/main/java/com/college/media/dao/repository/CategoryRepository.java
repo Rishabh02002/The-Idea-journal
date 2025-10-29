@@ -15,8 +15,7 @@ public class CategoryRepository implements GenericRepository<Category, Integer> 
     @Autowired
     private SessionFactory sessionFactory;
 
-    // Helper method to get the current session
-    private Session getCurrentSession() {
+     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
@@ -32,7 +31,6 @@ public class CategoryRepository implements GenericRepository<Category, Integer> 
         return getCurrentSession().get(Category.class, id);
     }
 
-    // Custom method specific to Category logic
     public Category findByEmail(String email) {
         return getCurrentSession().createQuery("FROM Category WHERE emailId = :email", Category.class)
                 .setParameter("email", email)

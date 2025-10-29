@@ -34,7 +34,6 @@ public class PostRepository implements GenericRepository<Post, Integer> {
         return getCurrentSession().get(Post.class, id);
     }
 
-    // Custom method specific to User logic
     public Post findByEmail(String email) {
         return getCurrentSession().createQuery("FROM Post WHERE emailId = :email", Post.class)
                 .setParameter("email", email)

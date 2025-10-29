@@ -18,7 +18,6 @@
         <script src='<c:url value="/resources/bootstrap/js/bootstrap.bundle.min.js"/>' defer></script> 
 
         <style>
-            /* Add padding to the body to prevent content from being covered by the fixed navbar */
             body {
                 padding-top: 65px;
                 background-color: #f8f9fa; /* Light gray background */
@@ -105,7 +104,7 @@
 
                                         <div class="card-body">
                                             <p class="card-text">
-                                                <%-- Original logic to show content preview --%>
+                                                
                                                 ${post.postContent.substring(0, post.postContent.length() > 200 ? 200 : post.postContent.length())}${post.postContent.length() > 200 ? '...' : ''}
                                             </p>
                                         </div>

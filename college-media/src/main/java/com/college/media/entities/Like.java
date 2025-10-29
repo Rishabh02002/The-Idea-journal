@@ -11,52 +11,49 @@ public class Like {
     @Column(name = "like_id")
     private Integer likeId; // Mapped to 'like_id'
 
-    // Foreign Key: post_id (Many Likes are on One Post)
     @ManyToOne
     @JoinColumn(name = "post_id", referencedColumnName = "post_id", nullable = false)
     private Post post;
 
-    // Foreign Key: user_id (Many Likes are given by One User)
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-	public Like(Integer likeId, Post post, User user) {
-		super();
-		this.likeId = likeId;
-		this.post = post;
-		this.user = user;
-	}
+    public Like(Integer likeId, Post post, User user) {
+        super();
+        this.likeId = likeId;
+        this.post = post;
+        this.user = user;
+    }
 
-	public Integer getLikeId() {
-		return likeId;
-	}
+    public Integer getLikeId() {
+        return likeId;
+    }
 
-	public void setLikeId(Integer likeId) {
-		this.likeId = likeId;
-	}
+    public void setLikeId(Integer likeId) {
+        this.likeId = likeId;
+    }
 
-	public Post getPost() {
-		return post;
-	}
+    public Post getPost() {
+        return post;
+    }
 
-	public void setPost(Post post) {
-		this.post = post;
-	}
+    public void setPost(Post post) {
+        this.post = post;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public Like() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public Like() {
+        super();
+        
+    }
 
-    // Getters and Setters (omitted for brevity)
     
 }

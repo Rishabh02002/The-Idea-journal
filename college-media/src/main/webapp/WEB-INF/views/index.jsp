@@ -27,7 +27,7 @@
         
         
          <style>
-        /* Custom Styles for Impression */
+        
         .full-height {
             min-height: calc(100vh - 56px); /* Full viewport height minus navbar height */
         }
@@ -69,7 +69,7 @@
 </head>
 <body class="bg-dark">
 
-	 <!-- 1. NAVIGATION BAR -->
+	 <!--NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand fs-4 fw-bold" href="<c:url value="/"/>">
@@ -81,11 +81,10 @@
         </div>
     </nav>
 
-    <!-- 2. MAIN SPLIT CONTENT AREA -->
+    <!-- MAIN SPLIT CONTENT AREA -->
     <main class="container-fluid">
         <div class="row full-height">
             
-            <!-- LEFT SIDE: IT/Marketing Impression -->
             <div class="col-lg-7 left-panel">
                 <i class="fas fa-code fa-5x mb-4"></i>
                 <h1>Code Your Thoughts into Reality.</h1>
@@ -100,12 +99,10 @@
                 </div>
             </div>
             
-            <!-- RIGHT SIDE: Login/Register Cards -->
             <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center p-5">
                 
                 <h2 class="mb-4 text-center">Join the Community</h2>
                 
-                <!-- LOGIN CARD -->
                 <div class="card card-auth text-center mb-4 w-100" style="max-width: 400px;">
                     <div class="card-body p-4">
                         <i class="fas fa-sign-in-alt fa-3x text-primary mb-3"></i>
@@ -117,7 +114,6 @@
                     </div>
                 </div>
 
-                <!-- REGISTER CARD -->
                 <div class="card card-auth card-register text-center w-100" style="max-width: 400px;">
                     <div class="card-body p-4">
                         <i class="fas fa-user-plus fa-3x text-success mb-3"></i>
@@ -133,7 +129,6 @@
         </div>
     </main>
 
-    <!-- Bootstrap JS CDN (Required for responsive navbar toggle) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	

@@ -17,22 +17,19 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    // All modifications/writes MUST be transactional
     @Transactional
-    public Post savePost(Post post,MultipartFile postImage)throws IOException {
+    public Post savePost(Post post, MultipartFile postImage) throws IOException {
         // Business logic: e.g., Hash the password before saving (omitted here)
-        
-    	if(postImage!=null&&!postImage.isEmpty())
-    	{
-    		post.setPostImage(postImage.getBytes());
-    	}else {
-    		post.setPostImage(null);
-    	}
-    	
-    	return postRepository.save(post);
+
+        if (postImage != null && !postImage.isEmpty()) {
+            post.setPostImage(postImage.getBytes());
+        } else {
+            post.setPostImage(null);
+        }
+
+        return postRepository.save(post);
     }
 
-    // Read operations are typically non-transactional (read-only is safer)
     @Transactional(readOnly = true)
     public Post getPostById(int id) {
         return postRepository.findById(id);

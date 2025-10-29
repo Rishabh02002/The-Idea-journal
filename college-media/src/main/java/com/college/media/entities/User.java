@@ -115,5 +115,5 @@ public class User {
         this.profilePic = profilePic;
     }
 
-    // Getters and Setters (omitted for brevity)
+    
 }

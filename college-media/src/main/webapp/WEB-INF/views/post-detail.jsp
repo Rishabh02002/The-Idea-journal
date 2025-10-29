@@ -24,12 +24,11 @@
                 background-color: #f8f9fa; /* Light gray background */
             }
             .post-image {
-                max-height: 450px; /* Prominent image size */
+                max-height: 450px; 
                 object-fit: cover;
             }
             .content-text {
-                /* Preserve formatting/line breaks from user input */
-                white-space: pre-wrap;
+               white-space: pre-wrap;
                 line-height: 1.8;
             }
         </style>
@@ -38,12 +37,10 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
             <div class="container-fluid">
-                <!-- Brand (Themed, linking to public index) -->
-                <a class="navbar-brand fs-4 fw-bold" href="<c:url value="/"/>">
+               <a class="navbar-brand fs-4 fw-bold" href="<c:url value="/"/>">
                     <i class="fas fa-lightbulb me-2 text-warning"></i> The Idea Journal
                 </a>
 
-                <!-- Back to Feed Button (Retained per request) -->
                 <div class="navbar-nav">
                     <a class="btn btn-outline-light" href="<c:url value="/content"/>">
                         <i class="fas fa-arrow-left me-1"></i> Back to Feed

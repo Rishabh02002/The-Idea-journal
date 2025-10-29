@@ -16,14 +16,12 @@ public class LikeService {
     @Autowired
     private LikeRepository likeRepository;
 
-    // All modifications/writes MUST be transactional
     @Transactional
     public Like saveLike(Like like) throws IOException {
 
         return likeRepository.save(like);
     }
 
-    // Read operations are typically non-transactional (read-only is safer)
     @Transactional(readOnly = true)
     public Like getLikeById(int id) {
         return likeRepository.findById(id);
@@ -33,15 +31,14 @@ public class LikeService {
     public List<Like> getAllLikes() {
         return likeRepository.findAll();
     }
-    
+
     @Transactional(readOnly = true)
-    public Long totalLikesOnPost(int postId)
-    {
-      return likeRepository.getTotalLikes(postId);
+    public Long totalLikesOnPost(int postId) {
+        return likeRepository.getTotalLikes(postId);
     }
+
     @Transactional(readOnly = true)
-    public Like getLikesByUserAndPost(int postId,int userId)
-    {
+    public Like getLikesByUserAndPost(int postId, int userId) {
         return likeRepository.getLikeByUserAndPost(postId, userId);
     }
 }
